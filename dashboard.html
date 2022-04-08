@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Stallion Dashboard</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+  <!-- SideMenu -->
+    <section id="menu">
+        <div class="logo">
+            <img src="imagesStallion/stallionlogo.png">
+        </div>
+        <div class="items">
+          <li><i class="fas fa-chart-pie"></i><a href="#">Dashboard</a></li>
+          <li><i class="fab fa-uikit"></i><a href="dashboard.html">Employees</a></li>
+          <li><i class="fas fa-th-large"></i><a href="products.html">Products</a></li>
+          <li><i class="fas fa-edit"></i><a href="sales.html">Performance</a></li>
+          <li><i class="fas fa-users"></i><a href="information.html">Users Info</a></li>
+         <li><i class="fas fa-hamburger"></i><a href="contact.html">Contact</a></li>
+         <li><i class="fas fa-chart-line"></i><a href="help.html">Help</a></li>
+      </div>
+    </section>
+  
+    <!-- Interface -->
+    <section id="interface">
+      <div class="navigation">
+   <!-- Search -->
+        <div class="n1">
+          <div>
+            <i id="menu-btn" class="fas fa-bars"></i>
+          </div>
+          <div class="search">
+            <i class="fas fa-search"></i>
+            <form>
+              <input type="text" placeholder="search">
+            </form>
+          </div>
+        </div>
+
+        <!-- Profile -->
+        <div class="profile">
+          <button class="m-1" id="plus-user" data-bs-toggle="modal" data-bs-target="#addModal">
+            <i class="fas fa-user-plus p-1"></i>      
+            <button class="m-1" type="button" id="delete-user">
+              <i class="fas fa-user-times p-1"></i>
+            </button></td>
+          <i class="far fa-bell"></i>
+          <img src="imagesStallion/person4.jpeg" alt="">
+        </div>
+      </div>
+
+      <!-- Title -->
+      <h3 class="i-name">Users Dashboard</h3>
+
+     
+      <!-- Cards -->
+      <!-- input class="form-control" type="number" id="usersTotal inputsm" value="0" disabled/> -->
+      <div class="values m-3">
+        <div class="val-box p-2">
+          <i class="fas fa-users"></i>
+          <div>
+          <h3 id="usersTotal">11<h3>
+          <span class="fw-bolder">User Employees</span>
+      </div>
+    </div>
+
+    <div class="val-box">
+      <i class="fas fa-shopping-cart"></i>
+    <div>
+      <h3>35,700</h3>
+      <span class="fw-bolder">In-stocks</span>
+  </div>
+</div>
+
+
+<div class="val-box">
+  <i class="fas fa-wine-bottle"></i>
+<div>
+  <h3>13,300</h3>
+  <span class="fw-bolder">Qty. Sold</span>
+</div>
+</div>
+
+<div class="val-box">
+  <i class="fas fa-dollar-sign"></i>
+<div>
+  <h3>630,700</h3>
+  <span class="fw-bolder">Sales Revenue</span>
+</div>
+</div>
+  </div>
+ 
+<!-- Table  -->
+<div class="board">
+  <table id="displayTable" width="100%">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Title</td>
+        <td>Status</td>
+        <td>Role</td>
+        <!-- <td><button class="m-1" id="plus-user" data-bs-toggle="modal" data-bs-target="#addModal">
+          <i class="fas fa-user-plus p-1"></i>      
+          <button class="m-1" type="button" id="delete-user">
+            <i class="fas fa-user-times p-1"></i>
+          </button></td> -->
+      </tr>
+    </thead>
+
+    <!-- addModalStart -->
+    <div
+    class="modal fade"
+    id="addModal"
+    tabindex="-1"
+    aria-labelledby="ModalProductLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-white text-center">Add User Account</h5>
+          <button
+            class="btn-close bg-white"
+            type="button"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+            <div>
+          <form class="form">
+            <!-- <p class="text-danger d-flex justify-content-center" id="noticeRed">PLEASE COMPLETE ALL THE DETAILS BELOW</p> -->
+            <span class=" fw-bolder m-1"
+              >Name: <input class="m-1" id="inputName" type="text"
+            /></span>
+            <span class="l fw-bolder m-1"
+              >Email: <input class="m-1" id="inputEmail" type="email"
+            /></span>
+            <span class="e fw-bolder m-1"
+              >Title: <input type="text" class="m-1" id="inputTitle"
+            /></span>
+            <span class=" fw-bolder m-1"
+              >Position:<input class="m-1" id="inputPosition" type="text"
+            /></span>
+            <!-- <input type="file" name="inpFile" id="inpFile">
+            <div class="image-preview" id="imagePreview">
+              <img src="" alt="Image Preview" class="image-preview__image">
+              <span class="image-preview__default-text">Profile Img Preview</span>
+            </div> -->
+            <button class="m-1" id="inputButton">
+              <i class="fas fa-user-plus p-1"></i>  
+            </button>
+            </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <!-- addModalEnd -->
+
+    <tbody>
+      <tr >
+        <td class="people">
+        <p><img src="imagesStallion/person1.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Erika</h5>
+          <p>erika@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Distributor Specialist</h5>
+          <p>Sales</p>
+        </td>
+
+        <td class="active">
+          <p class="statusBtn">Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person2.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Ryan</h5>
+          <p>ryan@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Distributor Specialist</h5>
+          <p>Sales</p>
+        </td>
+
+        <td class="active">
+          <p class="statusBtn">Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person3.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Carla</h5>
+          <p>carla@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Distributor Specialist</h5>
+          <p>Sales</p>
+        </td>
+
+        <td class="active">
+          <p class="statusBtn">Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person4.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Kevin</h5>
+          <p>kevin@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Sales Manager</h5>
+          <p>Manager</p>
+        </td>
+
+        <td class="active">
+          <p class="statusBtn">Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person5.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Robert</h5>
+          <p>robert@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Distributor Specialist</h5>
+          <p>Sales</p>
+        </td>
+
+        <td class="active">
+          <p>Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person6.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Emily</h5>
+          <p>emily@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Distributor Specialist</h5>
+          <p>Sales</p>
+        </td>
+
+        <td class="active">
+          <p class="statusBtn">Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person7.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Wilfred</h5>
+          <p>wilfred@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Distributor Specialist</h5>
+          <p>Sales</p>
+        </td>
+
+        <td class="active">
+          <p class="statusBtn">Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person8.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Romeo</h5>
+          <p>romeo@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Distributor Specialist</h5>
+          <p>Sales</p>
+        </td>
+
+        <td class="active">
+          <p>Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person9.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Mary Anne</h5>
+          <p>mary_anne@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Regional Sales Director</h5>
+          <p>Head</p>
+        </td>
+
+        <td class="active">
+          <p class="statusBtn">Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+
+
+      <tr>
+        <td class="people">
+        <p><img src="imagesStallion/person10.jpeg" class="profileImg"></p>
+        <div class="people-description">
+          <h5>Anthony</h5>
+          <p>anthony@email.com</p>
+        </div>
+        </td>
+
+        <td class="people-des">
+          <h5>Distributor Specialist</h5>
+          <p>Sales</p>
+        </td>
+
+        <td class="active">
+          <p class="statusBtn">Active</p>
+        </td>
+
+        <td class="role">
+          <p>Employee</p>
+        </td>
+        
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    </section>
+  
+
+
+<script src="script.js"></script>
+  </body>
+</html>
