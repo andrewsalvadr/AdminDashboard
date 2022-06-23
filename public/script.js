@@ -88,10 +88,6 @@ inpFile.addEventListener("change", function() {
 
 })
 
-
-
-
-
 /* Data Boxes */
 
 //Totalusers in all rows
@@ -99,8 +95,6 @@ const usersTotal = document.getElementById('usersTotal')
 const table = document.getElementById('displayTable')
 var rows = table.rows.length;
 document.getElementById("usersTotal").innerHTML = rows;
-
-
 
 selectedRow()
 
